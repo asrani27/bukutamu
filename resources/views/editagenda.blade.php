@@ -17,7 +17,7 @@
 @endpush
 @section('content')
 <div class="box box-primary">
-        <form class="form-horizontal" action="#" method="POST">
+<form class="form-horizontal" action="{{route('updateAgenda', $data->id)}}" method="POST">
             {{ csrf_field() }}
           <div class="box-body">
             <br />

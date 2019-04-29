@@ -34,7 +34,7 @@ class HomeController extends Controller
         $totalAgenda = count($data);
         $agendaToday = count($data->where('tanggal', $today));
         $agendaMonth = count(Agenda::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get());
-        //dd($month, $year);
+     
         return view('home',compact('data','totalAgenda','agendaToday','agendaMonth'));
     }
 
@@ -50,5 +50,23 @@ class HomeController extends Controller
     {
         $data = Agenda::find($id);
         return view('editagenda',compact('data'));
+    }
+
+    public function update(Request $req, $id)
+    {
+        $tanggal = Carbon::parse($req->tanggal)->format('Y-m-d');
+
+        $s = Agenda::find($id);
+        $s->nama_tamu   = $req->nama_tamu;
+        $s->jumlah_tamu = $req->jumlah_tamu;
+        $s->tanggal     = $tanggal;
+        $s->jam         = $req->jam;
+        $s->instansi    = $req->instansi;
+        $s->telp        = $req->telp;
+        $s->keperluan   = $req->keperluan;
+        $s->save();
+        
+        Alert::success('Diskominfotik', 'Berhasil Diupdate');
+        return redirect('/home');
     }
 }

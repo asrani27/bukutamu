@@ -35,6 +35,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/delete/{id}', 'HomeController@delete');
 Route::get('/home/edit/{id}', 'HomeController@edit');
+Route::post('/home/update/{id}', 'HomeController@update')->name('updateAgenda');
 Route::get('/user', 'UserController@index')->name('user');
 Route::post('/user/simpan', 'UserController@store')->name('simpanuser');
 Route::post('/user/edit', 'UserController@update')->name('edituser');
