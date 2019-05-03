@@ -1,4 +1,5 @@
-@extends('layouts.front.master')
+Selamat Datang
+{{-- @extends('layouts.front.master')
 
 @push('add_css')
 
@@ -174,4 +175,4 @@
             return true;
           }
         </script>
-@endpush
+@endpush --}}

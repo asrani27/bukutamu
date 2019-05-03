@@ -26,16 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $today = Carbon::today()->format('Y-m-d');
-        $now = Carbon::now();
-        $month = $now->month;
-        $year = $now->year;
-        $data = Agenda::orderBy('id','desc')->get();
-        $totalAgenda = count($data);
-        $agendaToday = count($data->where('tanggal', $today));
-        $agendaMonth = count(Agenda::whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->get());
-     
-        return view('home',compact('data','totalAgenda','agendaToday','agendaMonth'));
+        return view('home');
     }
 
     public function delete($id)

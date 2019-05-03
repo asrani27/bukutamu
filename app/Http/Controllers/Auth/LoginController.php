@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Alert;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,23 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login()
+    {
+        $login = request()->input('email');
+        
+        //$field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        
+        if(Auth::attempt(['email' => $login, 'password' => request()->password])) 
+        {
+            Alert::success('Senna','Berhasil Login');
+            return redirect('/home');
+        } 
+        else 
+        {
+            Alert::error('Senna','Username / Password Salah');
+            return back();
+        }
     }
 }

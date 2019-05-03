@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PEMKO BANJARMASIN</title>
+  <title>SENNA</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -60,8 +60,8 @@
     <div class="row">
     </div>
     <center><img class="" src="{{url('LTE/logo1.png')}}">
-        <h2 class="widget-user-username"><b>BUKU TAMU</b></h2>
-        <h4 class="widget-user-desc"><b>Pemko Banjarmasin</b></h4></center>
+        <h2 class="widget-user-username"><b>APLIKASI BPN</b></h2>
+        <h4 class="widget-user-desc"><b>Kalimantan Selatan</b></h4></center>
     <div class="row">
         <div class="col-md-4">
         </div>
@@ -141,5 +141,8 @@
       }
     @endif
 </script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+@include('sweet::alert')
 </body>
 </html>
